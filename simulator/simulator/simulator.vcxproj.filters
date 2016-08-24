@@ -24,6 +24,15 @@
     <ClCompile Include="Compiler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Operation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Addition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Simulator.h">
@@ -33,6 +42,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Compiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Operation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Addition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

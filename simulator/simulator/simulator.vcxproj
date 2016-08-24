@@ -78,13 +78,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Addition.cpp" />
     <ClCompile Include="Compiler.cpp" />
+    <ClCompile Include="Memory.cpp" />
+    <ClCompile Include="Operation.cpp" />
     <ClCompile Include="Simulator.cpp" />
     <ClCompile Include="Expression.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Addition.h" />
     <ClInclude Include="Compiler.h" />
     <ClInclude Include="Expression.h" />
+    <ClInclude Include="Memory.h" />
+    <ClInclude Include="Operation.h" />
     <ClInclude Include="Simulator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
