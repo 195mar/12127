@@ -7,7 +7,7 @@ using namespace std;
 #define MUL 1
 #define POW 2
 
-#define OPERAND 3
+#define CONSTANT 3
 #define VARIABLE 4
 class Expression
 {
@@ -20,6 +20,7 @@ private:
 public:
 	
 	Expression(string value, Expression* left, Expression* right, int type);
+	Expression(string value, int type);
 	//Expression(const Expression &e); //treba napraviti konstruktor kopije i premestajuci konstruktor
 	~Expression();
 

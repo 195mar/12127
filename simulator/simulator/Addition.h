@@ -1,15 +1,14 @@
 #pragma once
-#include "Operation.h"
-class Addition :public Operation
+#include "ArithmeticOperation.h"
+class Addition :public ArithmeticOperation
 {
+private :
+	int T = 5;
 public:
-	Addition();
-	~Addition();
-
-	int execute();
-	void setLeft(string left);
-	void setRight(string right);
-	void setLeft(double left);
-	void setRight(double right);
+	Addition(int id){ this->id = id; }
+	virtual double execute();
+	virtual void addOperand(Expression* operand, int position);
+	double getOperandValue(Expression* op);
+	virtual void printOp();
 };
 

@@ -1,5 +1,5 @@
 #include "Memory.h"
-
+Memory* Memory::memory = 0;
 
 Memory::Memory()
 {
@@ -10,9 +10,12 @@ Memory::~Memory()
 {
 }
 
-Memory* Memory::getMemory() {
-	if (memory != nullptr)
-		return memory;
-	memory = new Memory();
-	return memory;
+double Memory::get(string varName)
+{
+	double result = memoryMap.find(varName)->second;
+	return result;
+}
+void Memory::set(string varName, double value)
+{
+	memoryMap[varName] = value;
 }

@@ -13,23 +13,18 @@
 using namespace std;
 class Compiler
 {
-	//static Compiler* compiler;
-	//Compiler() {}
+	static Compiler* compiler;
+	Compiler() {}
 	string printComplexExpression(Expression *merged);
 	string printExpressionNum(Expression *);
 	Expression* mergeOperandsWithOp(stack<Expression*> &operandsStack, stack<Expression*> &operatorsStack);
 public:
 	
-/*	static Compiler* getCompiler() {
-		if (compiler == NULL) {
+	static Compiler* getCompiler() {
+		if (compiler == nullptr)
 			compiler = new Compiler();
-			return compiler;
-		}
-		else
-			return compiler;
-
-	} */
-	Compiler() {}
+		return compiler;
+	} 
 	~Compiler(){}
 
 	vector<string> split(const string &s, char delim);

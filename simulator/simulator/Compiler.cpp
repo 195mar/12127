@@ -1,6 +1,8 @@
 #include "Compiler.h"
 #include "Expression.h"
 
+Compiler* Compiler::compiler = 0;
+
 // zasto nismo napravili split kao staticku f-ju?
 vector<string> Compiler::split(const string &s, char delim) { // deli string(u ovom slucaju jednu liniju tekstualnog fajla
 	//tj. programa) na vektor stringova, gde su elementi vektora stringovi odvojeni razmakom
@@ -40,9 +42,9 @@ bool Compiler::makeInf(string filename) {
 			for (int i = 2; i < ss.size(); i++)
 			{
 				currentS = ss.at(i);
-				if (i % 2 == 0)//operandi
+				if (i % 2 == 0)//konstante
 				{
-					Expression* e = new Expression(currentS, NULL, NULL, OPERAND);
+					Expression* e = new Expression(currentS, NULL, NULL, CONSTANT);
 					operandsStack.push(e);
 				}
 				else//operatori
@@ -79,10 +81,10 @@ bool Compiler::makeInf(string filename) {
 				outputFile << printComplexExpression(merged);
 			}
 			outputFile << "(" << opNum << ") = ";
-			outputFile << variable << " " << opNum++ - 1 << "\n";
+			outputFile << variable << " (" << opNum++ - 1 << ") \n";
 		}
 	}
-	return false;
+	return true;
 }
 
 Expression* Compiler::mergeOperandsWithOp(stack<Expression*> &operandsStack, stack<Expression*> &operatorsStack) {
@@ -137,14 +139,3 @@ string Compiler::printExpressionNum(Expression * ex)
 	output.append(") ");
 	return output;
 }
-
-void main() {
-	string s = "program.txt";
-
-	//Compiler* comp = Compiler::getCompiler();
-	Compiler* comp = new Compiler();
-	bool svekul = comp->makeInf(s);
-	string cit;
-	scanf_s("%s", cit);
-}
-

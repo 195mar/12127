@@ -79,17 +79,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Addition.cpp" />
+    <ClCompile Include="Assignment.cpp" />
     <ClCompile Include="Compiler.cpp" />
+    <ClCompile Include="Machine.cpp" />
     <ClCompile Include="Memory.cpp" />
-    <ClCompile Include="Operation.cpp" />
+    <ClCompile Include="Multiplication.cpp" />
     <ClCompile Include="Simulator.cpp" />
     <ClCompile Include="Expression.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Addition.h" />
+    <ClInclude Include="ArithmeticOperation.h" />
+    <ClInclude Include="Assignment.h" />
     <ClInclude Include="Compiler.h" />
     <ClInclude Include="Expression.h" />
+    <ClInclude Include="Machine.h" />
     <ClInclude Include="Memory.h" />
+    <ClInclude Include="Multiplication.h" />
     <ClInclude Include="Operation.h" />
     <ClInclude Include="Simulator.h" />
   </ItemGroup>

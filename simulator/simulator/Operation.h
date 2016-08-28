@@ -1,25 +1,28 @@
 #pragma once
 #include <vector>
+#include "Expression.h"
 using namespace std;
+
+#define LEFT 0
+#define RIGHT 1
+
 class Operation
 {
 protected:
 	int id;
 	int T;
-	vector <double> operands;
+	Expression **operands;
 	vector <Operation*> leftRes;
 	vector <Operation*> rightRes;
 
-
 public:
-	Operation();
-	~Operation();
+	Operation(){}
+	~Operation(){}
 
-	virtual int execute() = 0;
-	virtual void setLeft(string left) = 0;
-	virtual void setRight(string right) = 0;
-	virtual void setLeft(double left) = 0;
-	virtual void setRight(double right) = 0;
-
+	virtual void addLeftRes(Operation* left) = 0;
+	virtual void addRightRes(Operation* right) = 0;
+	virtual void setId(int id) = 0;
+	virtual int getId() = 0;
+	virtual int getT() = 0;
 };
 
