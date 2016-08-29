@@ -4,11 +4,26 @@
 
 using namespace std;
 
-double Addition::execute()
+void Addition::execute()
 {
 	double a = getOperandValue(operands[LEFT]);
 	double b = getOperandValue(operands[RIGHT]);
-	return a + b;
+	double c = a + b;
+	Expression *result = new Expression(to_string(c), CONSTANT);
+
+	for (Operation* leftDependant : leftRes)
+	{
+		leftDependant->addOperand(result, LEFT);
+		if (leftDependant->hasBothOperands()) //znaci da je cekala jos samo na ovu operaciju
+			leftDependant->setStartTime(startTime + T); 
+	}
+	for (Operation* rightDependant : rightRes)
+	{
+		rightDependant->addOperand(result, RIGHT);
+		if (rightDependant->hasBothOperands()) //znaci da je cekala jos samo na ovu operaciju
+			rightDependant->setStartTime(startTime + T);
+	}
+
 }
 void Addition::printOp()
 {
@@ -31,7 +46,7 @@ double Addition::getOperandValue(Expression* op) {
 		if (op->E_type() == CONSTANT)
 			oper = stod(op->getValue()); //string to double
 		else if (op->E_type() == VARIABLE)
-			oper = 0; //uzimanje iz memorije
+			oper = Memory::getMemory()->get(op->getValue());
 		else
 			throw "Operand sabiranja mora biti var ili const";
 	}

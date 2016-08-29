@@ -84,6 +84,7 @@
     <ClCompile Include="Machine.cpp" />
     <ClCompile Include="Memory.cpp" />
     <ClCompile Include="Multiplication.cpp" />
+    <ClCompile Include="Power.cpp" />
     <ClCompile Include="Simulator.cpp" />
     <ClCompile Include="Expression.cpp" />
   </ItemGroup>
@@ -97,6 +98,7 @@
     <ClInclude Include="Memory.h" />
     <ClInclude Include="Multiplication.h" />
     <ClInclude Include="Operation.h" />
+    <ClInclude Include="Power.h" />
     <ClInclude Include="Simulator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

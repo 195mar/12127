@@ -4,11 +4,23 @@
 
 using namespace std;
 
-double Multiplication::execute()
+void Multiplication::execute()
 {
 	double a = getOperandValue(operands[LEFT]);
 	double b = getOperandValue(operands[RIGHT]);
-	return a * b;
+	double c = a * b;
+	Expression *result = new Expression(to_string(c), CONSTANT);
+
+	for (Operation* leftDependant : leftRes)
+	{
+		leftDependant->addOperand(result, LEFT);
+		leftDependant->setStartTime(startTime + T);
+	}
+	for (Operation* rightDependant : rightRes)
+	{
+		rightDependant->addOperand(result, RIGHT);
+		rightDependant->setStartTime(startTime + T);
+	}
 }
 void Multiplication::printOp()
 {
@@ -32,7 +44,7 @@ double Multiplication::getOperandValue(Expression* op) {
 		if (op->E_type() == CONSTANT)
 			oper = stod(op->getValue()); //string to double
 		else if (op->E_type() == VARIABLE)
-			oper = 0; //uzimanje iz memorije
+			oper = Memory::getMemory()->get(op->getValue()); //uzimanje iz memorije
 		else
 			throw "Operand mnozenja mora biti var ili const";
 	}

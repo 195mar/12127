@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include "ArithmeticOperation.h"
+#include "Assignment.h"
+#include <list>
 using namespace std;
 
 class Machine
@@ -8,7 +10,9 @@ class Machine
 private:
 	static Machine * machine;
 	Machine() {}
-	vector<ArithmeticOperation*> allOperations;
+	list<ArithmeticOperation*> allOperations;
+	list<ArithmeticOperation*> forExecution;
+	list<Assignment*> assignments;
 
 	ArithmeticOperation* makeAssignmentOp(string left, string right, int opNum);
 	ArithmeticOperation* makeOtherOp(string left, string right, int opNum, string op);

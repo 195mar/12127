@@ -1,20 +1,9 @@
-﻿Build started 8/29/2016 12:34:20 AM.
+﻿Build started 8/30/2016 1:42:49 AM.
      1>Project "C:\Users\Marko\Documents\GitHub\dataflow-simulator\simulator\simulator\simulator.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Addition.cpp Assignment.cpp Machine.cpp Multiplication.cpp Simulator.cpp
-         Addition.cpp
-         Generating Code...
-         Compiling...
-         Multiplication.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Machine.cpp
          Machine.cpp
-     1>c:\users\marko\documents\github\dataflow-simulator\simulator\simulator\machine.cpp(58): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\marko\documents\github\dataflow-simulator\simulator\simulator\machine.cpp(95): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\marko\documents\github\dataflow-simulator\simulator\simulator\machine.cpp(122): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\marko\documents\github\dataflow-simulator\simulator\simulator\machine.cpp(163): warning C4018: '<' : signed/unsigned mismatch
-         Assignment.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         Simulator.cpp
+     1>c:\users\marko\documents\github\dataflow-simulator\simulator\simulator\assignment.h(14): warning C4715: 'Assignment::getVarName' : not all control paths return a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Marko\Documents\GitHub\dataflow-simulator\simulator\Debug\simulator.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Marko\Documents\GitHub\dataflow-simulator\simulator\Debug\simulator.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Marko\Documents\GitHub\dataflow-simulator\simulator\Debug\simulator.lib" /MACHINE:X86 Debug\Addition.obj
          Debug\Assignment.obj
@@ -22,6 +11,7 @@
          Debug\Machine.obj
          Debug\Memory.obj
          Debug\Multiplication.obj
+         Debug\Power.obj
          Debug\Simulator.obj
          Debug\Expression.obj
          simulator.vcxproj -> C:\Users\Marko\Documents\GitHub\dataflow-simulator\simulator\Debug\simulator.exe
@@ -29,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.17
+Time Elapsed 00:00:00.75

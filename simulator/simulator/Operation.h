@@ -11,6 +11,7 @@ class Operation
 protected:
 	int id;
 	int T;
+	int startTime;
 	Expression **operands;
 	vector <Operation*> leftRes;
 	vector <Operation*> rightRes;
@@ -24,5 +25,9 @@ public:
 	virtual void setId(int id) = 0;
 	virtual int getId() = 0;
 	virtual int getT() = 0;
+	virtual void addOperand(Expression* operand, int position) = 0;
+	virtual int getStartTime() = 0;
+	virtual void setStartTime(int startTime) = 0;
+	virtual bool hasBothOperands() = 0;
 };
 

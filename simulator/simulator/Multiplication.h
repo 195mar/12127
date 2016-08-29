@@ -2,13 +2,11 @@
 #include "ArithmeticOperation.h"
 class Multiplication : public ArithmeticOperation
 {
-private :
-	int T = 8;
 public:
-	Multiplication(int id){ this->id = id; }
-	double execute();
-	void addOperand(Expression* operand, int position);
+	Multiplication(int id){ this->id = id; T = 8; }
+	virtual void execute();
+	virtual void addOperand(Expression* operand, int position);
 	double getOperandValue(Expression* op);
-	void printOp();
+	virtual void printOp();
 };
 
