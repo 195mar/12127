@@ -6,6 +6,7 @@ class ArithmeticOperation : public Operation
 public:
 	ArithmeticOperation() {
 		startTime = -1;
+		executingTime = 0;
 		operands = new Expression*[2];
 		operands[0] = NULL;
 		operands[1] = NULL;
@@ -29,7 +30,10 @@ public:
 		s.append(to_string(startTime + T) + "ns\n");
 		return s;
 	}
+	void incExecutingTime() { executingTime++; }
+	bool finishedExecuting() { return executingTime >= T; }
 
+	virtual void forwardResult(){}
 	virtual void execute(){}
 	virtual void addOperand(Expression* operand, int position){}
 	virtual void printOp(){}

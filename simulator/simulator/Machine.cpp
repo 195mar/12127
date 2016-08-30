@@ -47,7 +47,7 @@ void Machine::exec(string file)
 	//printAllOperations();
 
 	int currentNanoSec = 0;
-	while ((!allOperations.empty()) || (!forExecution.empty()))
+	while ((!allOperations.empty()) || (!executing.empty()))
 	{
 
 		//prolazi kroz sve operacije,
@@ -58,7 +58,8 @@ void Machine::exec(string file)
 		{
 			if ((*currOperIterator)->hasBothOperands() && ((*currOperIterator)->getStartTime() != -1) && ((*currOperIterator)->getStartTime() <= currentNanoSec))
 			{
-				forExecution.push_back((*currOperIterator));
+				(*currOperIterator)->execute();
+				executing.push_back((*currOperIterator));
 				allOperations.erase(currOperIterator++);
 			}
 			else
@@ -67,18 +68,19 @@ void Machine::exec(string file)
 			}
 		}
 		
-		list<ArithmeticOperation*>::iterator executeOpIterator = forExecution.begin();
-		while (executeOpIterator != forExecution.end())
+		list<ArithmeticOperation*>::iterator executingOpIterator = executing.begin();
+		while (executingOpIterator != executing.end())
 		{
-			if (((*executeOpIterator)->getStartTime() + (*executeOpIterator)->getT())  <= currentNanoSec)
+			if ((*executingOpIterator)->finishedExecuting())
 			{
-				(*executeOpIterator)->execute();
-				cout << (*executeOpIterator)->outputForLog();
-				forExecution.erase(executeOpIterator++);
+				(*executingOpIterator)->forwardResult();
+				outputFile << (*executingOpIterator)->outputForLog();
+				executing.erase(executingOpIterator++);
 			}
 			else
 			{
-				++executeOpIterator;
+				(*executingOpIterator)->incExecutingTime();
+				++executingOpIterator;
 			}
 		}
 		

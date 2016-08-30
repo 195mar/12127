@@ -8,22 +8,25 @@ void Addition::execute()
 {
 	double a = getOperandValue(operands[LEFT]);
 	double b = getOperandValue(operands[RIGHT]);
-	double c = a + b;
-	Expression *result = new Expression(to_string(c), CONSTANT);
+	result = a + b;
+	
+}
+void Addition::forwardResult()
+{
+	Expression *res = new Expression(to_string(result), CONSTANT);
 
 	for (Operation* leftDependant : leftRes)
 	{
-		leftDependant->addOperand(result, LEFT);
+		leftDependant->addOperand(res, LEFT);
 		if (leftDependant->hasBothOperands()) //znaci da je cekala jos samo na ovu operaciju
-			leftDependant->setStartTime(startTime + T); 
+			leftDependant->setStartTime(startTime + T);
 	}
 	for (Operation* rightDependant : rightRes)
 	{
-		rightDependant->addOperand(result, RIGHT);
+		rightDependant->addOperand(res, RIGHT);
 		if (rightDependant->hasBothOperands()) //znaci da je cekala jos samo na ovu operaciju
 			rightDependant->setStartTime(startTime + T);
 	}
-
 }
 void Addition::printOp()
 {

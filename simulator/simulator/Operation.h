@@ -12,6 +12,8 @@ protected:
 	int id;
 	int T;
 	int startTime;
+	int executingTime;
+	double result;
 	Expression **operands;
 	vector <Operation*> leftRes;
 	vector <Operation*> rightRes;
@@ -29,5 +31,8 @@ public:
 	virtual int getStartTime() = 0;
 	virtual void setStartTime(int startTime) = 0;
 	virtual bool hasBothOperands() = 0;
+	virtual void incExecutingTime() = 0;
+	virtual bool finishedExecuting() = 0;
+	virtual void forwardResult() = 0;
 };
 

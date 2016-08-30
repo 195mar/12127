@@ -8,5 +8,6 @@ public:
 	virtual void addOperand(Expression* operand, int position);
 	double getOperandValue(Expression* op);
 	virtual void printOp();
+	virtual void forwardResult();
 };
 

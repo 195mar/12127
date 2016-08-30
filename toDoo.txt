@@ -1,0 +1,7 @@
+﻿- imena fajlova kao argument programa
+-parsiranje ulaznog fajla (umesto split po razmaku, parsiranje redom jer ne mora biti odvojeno razmakom)
+-Ukoliko se čita promenljiva koja ne postoji u memoriji, prijavljuje se greška izuzetkom VariableNotFoundException.
+-Programski sistem realizovati tako da bude detaljno komentarisan
+-Za obradu i oporavak od eventualnih grešaka MORA se koristiti mehanizam izuzetaka
+-Simulator MORA biti implementiran korišćenjem jezgra simulatora diskretnih događaja
+-razmisliti da li menjati implementaciju tako da se ne oslanja na allOperations vec samo na executing

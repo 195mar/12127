@@ -6,9 +6,11 @@ using namespace std;
 
 void Assignment::execute()
 {
-	string a = operands[LEFT]->getValue();
-	double b = getOperandValue(operands[RIGHT]);
-	Memory::getMemory()->set(a, b);
+	result = getOperandValue(operands[RIGHT]);
+}
+void Assignment::forwardResult()
+{
+	Memory::getMemory()->set(operands[LEFT]->getValue(), result);
 
 	for (Operation* leftDependant : leftRes)
 	{
@@ -20,9 +22,7 @@ void Assignment::execute()
 		rightDependant->addOperand(operands[LEFT], RIGHT);
 		rightDependant->setStartTime(startTime + T);
 	}
-
 }
-
 
 void Assignment::printOp()
 {

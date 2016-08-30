@@ -11,7 +11,7 @@ private:
 	static Machine * machine;
 	Machine() {}
 	list<ArithmeticOperation*> allOperations;
-	list<ArithmeticOperation*> forExecution;
+	list<ArithmeticOperation*> executing;
 	list<Assignment*> assignments;
 
 	ArithmeticOperation* makeAssignmentOp(string left, string right, int opNum);

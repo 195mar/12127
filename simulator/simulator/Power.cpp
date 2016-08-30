@@ -9,22 +9,24 @@ void Power::execute()
 {
 	double a = getOperandValue(operands[LEFT]);
 	double b = getOperandValue(operands[RIGHT]);
-	double c = pow(a, b);
-	Expression *result = new Expression(to_string(c), CONSTANT);
+	result = pow(a, b);
+}
+void Power::forwardResult()
+{
+	Expression *res = new Expression(to_string(result), CONSTANT);
 
 	for (Operation* leftDependant : leftRes)
 	{
-		leftDependant->addOperand(result, LEFT);
+		leftDependant->addOperand(res, LEFT);
 		if (leftDependant->hasBothOperands()) //znaci da je cekala jos samo na ovu operaciju
 			leftDependant->setStartTime(startTime + T);
 	}
 	for (Operation* rightDependant : rightRes)
 	{
-		rightDependant->addOperand(result, RIGHT);
+		rightDependant->addOperand(res, RIGHT);
 		if (rightDependant->hasBothOperands()) //znaci da je cekala jos samo na ovu operaciju
 			rightDependant->setStartTime(startTime + T);
 	}
-
 }
 void Power::printOp()
 {

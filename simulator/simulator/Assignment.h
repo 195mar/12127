@@ -8,6 +8,7 @@ public:
 	virtual void addOperand(Expression* operand, int position);
 	double getOperandValue(Expression* op);
 	virtual void printOp();
+	virtual void forwardResult();
 	string getVarName() {
 		if (operands[0] != NULL)
 			return operands[0]->getValue();
